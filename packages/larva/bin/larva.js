@@ -15,6 +15,7 @@ const hasScriptFile = fs.existsSync(
 );
 
 if ( hasScriptFile ) {
+	// eslint-disable-next-line no-console
 	console.log( `Running ${ chalk.italic( scriptName ) } script\n` );
 	spawn.sync(
 		'node',
@@ -22,5 +23,6 @@ if ( hasScriptFile ) {
 		{ stdio: 'inherit' }
 	);
 } else {
+	// eslint-disable-next-line no-console
 	console.error( chalk.red( `No file found for "${ scriptName }".` ) );
 }

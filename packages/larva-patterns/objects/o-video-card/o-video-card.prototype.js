@@ -6,12 +6,6 @@ const c_play_icon = clonedeep( c_play_icon_prototype );
 const o_indicator_prototype = require( '../o-indicator/o-indicator.prototype.js' );
 const o_indicator = clonedeep( o_indicator_prototype );
 
-const c_heading_prototype = require( '../../components/c-heading/c-heading.prototype.js' );
-const c_heading = clonedeep( c_heading_prototype );
-
-const c_span_prototype = require( '../../components/c-span/c-span.prototype.js' );
-const c_span = clonedeep( c_span_prototype );
-
 const c_dek_prototype = require( '../../components/c-dek/c-dek.prototype.js' );
 const c_dek = clonedeep( c_dek_prototype );
 

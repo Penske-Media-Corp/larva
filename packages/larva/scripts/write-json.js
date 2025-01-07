@@ -9,6 +9,7 @@ const cliArgs = getArgsFromCli();
 
 const fromLarva = 'larva' === cliArgs[ 1 ] ? true : false;
 
+// eslint-disable-next-line no-console
 console.log(
 	chalk.bold( `\n---- ${ cliArgs[ 1 ] || 'Project' } JSON ----\n` )
 );

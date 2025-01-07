@@ -52,6 +52,7 @@ generateStatic(
 		// TODO: copy assets into build path
 		// copy assets from larva package to static
 		// copy assets from project to assets
+		// eslint-disable-next-line no-console
 		console.log( message );
 	},
 	urlBase

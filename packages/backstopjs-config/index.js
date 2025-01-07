@@ -31,6 +31,7 @@ const paths = backstopUtils.prepareTestPaths(
 
 // Exit if no paths in config.
 if ( 0 === paths.length ) {
+	// eslint-disable-next-line no-console
 	console.error(
 		chalk.red.bold(
 			'\nPlease specify paths to test in larva.config.js in the structure `backstop.testPaths`, or add modules in `backstop.larvaModules`\n'
@@ -40,7 +41,9 @@ if ( 0 === paths.length ) {
 }
 
 // Exit if no URL from config or CLI.
+// eslint-disable-next-line no-undef
 if ( undefined === appConfiguration.testBaseUrl && false === urlFromCli ) {
+	// eslint-disable-next-line no-console
 	console.error(
 		chalk.red.bold(
 			'\nPlease specify a QA URL in pmc.config.js in `backstop.testBaseUrl`, or pass in a full URL with the comman e.g. `npm run backstop -- test --url=https://example.com`\n'
@@ -56,6 +59,7 @@ const scenarios = getScenarios(
 	appConfiguration.testScenario
 );
 
+// eslint-disable-next-line no-console
 console.log( chalk.blue( 'Testing paths: \n' + paths ) );
 
 module.exports = merge(

@@ -1,3 +1,6 @@
+// navigator is part of webfontloader.
+/* global navigator */
+
 import { Route, Routes, useMatch } from 'react-router-dom';
 
 import React, { useState, useEffect } from 'react';
@@ -84,7 +87,7 @@ export const TokensView = () => {
 		setCoreColorTokens( newCoreColors );
 	};
 
-	const fetchAndSetTokens = async ( e ) => {
+	const fetchAndSetTokens = async () => {
 		const brand =
 			appActions.create === selectedBrand.action
 				? 'default'
@@ -93,14 +96,14 @@ export const TokensView = () => {
 		const url = TOKENS_FETCH_URL + brand + '.raw.json';
 		const response = await fetch( url );
 		const json = await response.json();
-		const tokens = await json.props;
-		const sortedKeys = await Object.keys( tokens ).sort();
+		const newTokens = await json.props;
+		const sortedKeys = await Object.keys( newTokens ).sort();
 		const sortedTokens = sortedKeys.reduce( ( tokensObj, key ) => {
-			tokensObj[ key ] = tokens[ key ];
+			tokensObj[ key ] = newTokens[ key ];
 			return tokensObj;
 		}, {} );
 
-		const reducedColorTokens = await getCoreColorsFromTokens( tokens );
+		const reducedColorTokens = await getCoreColorsFromTokens( newTokens );
 		const sortedColorKeys = Object.keys( reducedColorTokens ).sort();
 		const sortedColorTokens = sortedColorKeys.reduce(
 			( sortedColors, key ) => {
@@ -113,17 +116,17 @@ export const TokensView = () => {
 		setCoreColorTokens( sortedColorTokens );
 		setTokens( sortedTokens );
 
-		const initialDefaultTokens = ( async ( e ) => {
+		const initialDefaultTokens = ( async () => {
 			if ( 'default' === brand ) {
 				// Deep clone the object since we are checking equivalence later.
 				return JSON.parse( JSON.stringify( sortedTokens ) );
 			}
-			const url = TOKENS_FETCH_URL + '/default.raw.json';
-			const response = await fetch( url );
-			const json = await response.json();
-			const tokens = await json.props;
+			const thisUrl = TOKENS_FETCH_URL + '/default.raw.json';
+			const thisResponse = await fetch( thisUrl );
+			const thisJson = await thisResponse.json();
+			const theseTokens = await thisJson.props;
 
-			return tokens;
+			return theseTokens;
 		} )();
 
 		// Save unchanged tokens so we can tell what is

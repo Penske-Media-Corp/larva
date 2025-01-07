@@ -13,8 +13,8 @@ const c_lazy_image = clonedeep(
 c_heading.c_heading_classes +=
 	' a-font-theme-primary-s lrv-u-font-size-32@desktop lrv-u-font-size-28 lrv-u-line-height-small lrv-u-text-transform-uppercase lrv-u-line-height-small';
 
-heading_1 = clonedeep( c_heading );
-heading_2 = clonedeep( c_heading );
+const heading_1 = clonedeep( c_heading );
+const heading_2 = clonedeep( c_heading );
 
 heading_1.c_heading_text = 'Rolling Stone';
 heading_1.c_heading_classes += ' lrv-u-color-brand-primary';

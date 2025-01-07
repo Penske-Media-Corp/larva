@@ -8,15 +8,19 @@ const appConfiguration = require( '../../../lib/utils/getAppConfiguration' )(
 	'patterns'
 );
 
-const expectedSchema = require( fixture +
-	'/src/patterns/components/c-nav-link/c-nav-link.prototype.js' );
-const expectedVariantSchema = require( fixture +
-	'/src/patterns/components/c-nav-link/c-nav-link.featured.js' );
-const expectedSchemaFromJson = require( fixture +
-	'/src/patterns/objects/o-crap/o-crap.json' );
+const expectedSchema = require(
+	fixture + '/src/patterns/components/c-nav-link/c-nav-link.prototype.js'
+);
+const expectedVariantSchema = require(
+	fixture + '/src/patterns/components/c-nav-link/c-nav-link.featured.js'
+);
+const expectedSchemaFromJson = require(
+	fixture + '/src/patterns/objects/o-crap/o-crap.json'
+);
 const expectedPath = fixture + '/src/patterns/objects/o-nav/o-nav.json';
-const expectedOneOffSchema = require( fixture +
-	'/src/patterns/one-offs/newswire/newswire.prototype.js' );
+const expectedOneOffSchema = require(
+	fixture + '/src/patterns/one-offs/newswire/newswire.prototype.js'
+);
 
 const compStub = {
 	name: 'c-nav-link',

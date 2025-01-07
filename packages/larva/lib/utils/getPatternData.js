@@ -4,7 +4,7 @@ const path = require( 'path' );
  * Get Pattern Data
  *
  * @param {string} patternsPath
- * @param {Object} params Object containing name of pattern
+ * @param {Object} params       Object containing name of pattern
  */
 function getPatternData( patternsPath, params ) {
 	const variant = params.variant || 'prototype';
@@ -14,12 +14,6 @@ function getPatternData( patternsPath, params ) {
 		params.name,
 		params.name + '.' + variant + '.js'
 	);
-	const jsonPath = path.join(
-		patternsPath,
-		params.type,
-		params.name,
-		params.name + '.json'
-	);
 
 	try {
 		return require( patternPath );
@@ -27,10 +21,17 @@ function getPatternData( patternsPath, params ) {
 		const originalError = e;
 
 		try {
+			const jsonPath = path.join(
+				patternsPath,
+				params.type,
+				params.name,
+				params.name + '.json'
+			);
+
 			// Backwards compat for Deadline when patterns were stored as JSON
 			const patternData = require( jsonPath );
 			return patternData;
-		} catch ( e ) {
+		} catch {
 			return {
 				message: `Error getting data for "${ params.name }".<br>There is likely a problem with ${ params.name }.${ variant }.js.`,
 				error: originalError,

@@ -35,7 +35,8 @@ o_email_capture_form.c_email_field.c_email_field_label_classes =
 	'lrv-a-screen-reader-only';
 o_email_capture_form.c_email_field.c_email_field_label_text = 'Email Address';
 
-c_tagline_terms.c_tagline_classes = 'lrv-u-margin-t-1 lrv-a-font-basic-xxs lrv-a-children-link-decoration-underline';
+c_tagline_terms.c_tagline_classes =
+	'lrv-u-margin-t-1 lrv-a-font-basic-xxs lrv-a-children-link-decoration-underline';
 c_tagline_terms.c_tagline_text = false;
 c_tagline_terms.c_tagline_markup =
 	'By subscribing, I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.';

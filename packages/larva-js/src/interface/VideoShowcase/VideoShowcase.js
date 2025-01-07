@@ -53,8 +53,8 @@ export default class VideoShowcase {
 		 *
 		 * @type {Object}
 		 * @property {boolean} isPlayerSetup - Whether or not the player has been setup or played. Set in onFirstTimePlay()
-		 * @property {string} videoID - A Youtube or JWPlayer ID extracted from a `data-video-showcase-trigger` e.g. f1FX5wvC3DA
-		 * @property {string} videoType - "youtube" or "jwplayer" from `data-video-showcase-type`
+		 * @property {string}  videoID       - A Youtube or JWPlayer ID extracted from a `data-video-showcase-trigger` e.g. f1FX5wvC3DA
+		 * @property {string}  videoType     - "youtube" or "jwplayer" from `data-video-showcase-type`
 		 */
 		this.state = {
 			isPlayerSetup: false,
@@ -70,11 +70,11 @@ export default class VideoShowcase {
 		 * Note: the title and dek are using class selectors so they can be added to existing patterns.
 		 *
 		 * @type {Object}
-		 * @property {element} title - A anchor element that will receive both a permalink and heading text.
-		 * @property {element} dek - An element containing a direct child paragraph that will support the dek text.
-		 * @property {element} iframe - The iframe that will recieve an src when a trigger with the Youtube video type is clicked.
-		 * @property {element} jwplayerContainer - The placeholder element where JWPlayer will be applied.
-		 * @property {element} social - The main social share container that will be replaced with social share from triggers.
+		 * @property {HTMLElement} title             - A anchor element that will receive both a permalink and heading text.
+		 * @property {HTMLElement} dek               - An element containing a direct child paragraph that will support the dek text.
+		 * @property {HTMLElement} iframe            - The iframe that will recieve an src when a trigger with the Youtube video type is clicked.
+		 * @property {HTMLElement} jwplayerContainer - The placeholder element where JWPlayer will be applied.
+		 * @property {HTMLElement} social            - The main social share container that will be replaced with social share from triggers.
 		 */
 		this.playerUI = {
 			title: el.querySelector( '.js-VideoShowcase-title' ),
@@ -128,14 +128,14 @@ export default class VideoShowcase {
 	 * to the main player card. These are all strings from data attributes except the
 	 * social share, which replaces an entire block of HTML.
 	 *
-	 * @param {element} type - Video type.
-	 * @param {element} el   - A trigger.
+	 * @param    {HTMLElement} type         - Video type.
+	 * @param    {HTMLElement} el           - A trigger.
 	 *
-	 * @return {Object} - An object containing the data needed to update the player.
-	 * @property {string} title - Title text from the `data-video-showcase-title`
-	 * @property {string} dek - Dek text from the `data-video-showcase-dek`
-	 * @property {string} permalink - Link from `data-video-showcase-permalink`
-	 * @property {string} socialString - HTML string returned from wp.template.
+	 * @return   {Object}               - An object containing the data needed to update the player.
+	 * @property {string}      title        - Title text from the `data-video-showcase-title`
+	 * @property {string}      dek          - Dek text from the `data-video-showcase-dek`
+	 * @property {string}      permalink    - Link from `data-video-showcase-permalink`
+	 * @property {string}      socialString - HTML string returned from wp.template.
 	 */
 
 	getPlayerCardData( type, el ) {
@@ -168,8 +168,8 @@ export default class VideoShowcase {
 	 *
 	 * Apply the assembled data to the UI.
 	 *
-	 * @param {element} el  - A trigger.
-	 * @param {Object}  data - An object of data from getPlayerCardData.
+	 * @param {HTMLElement} el   - A trigger.
+	 * @param {Object}      data - An object of data from getPlayerCardData.
 	 */
 
 	updatePlayerCardData( el, data ) {
@@ -233,7 +233,6 @@ export default class VideoShowcase {
 		if ( 'connatix' === type || 'iframe' === type ) {
 			return id;
 		}
-		
 	}
 
 	/**
@@ -256,19 +255,21 @@ export default class VideoShowcase {
 	 * @param {string} playerId - Connatix player id.
 	 */
 	playConnatix( mediaId, playerId ) {
-		this.playerUI.connatixContainer.removeAttribute('hidden');
-		const eleId = this.playerUI.connatixContainer.getAttribute('id');
+		this.playerUI.connatixContainer.removeAttribute( 'hidden' );
+		const eleId = this.playerUI.connatixContainer.getAttribute( 'id' );
 		// eslint-disable-next-line no-undef
 		new Image().src =
 			'https://capi.elements.video/tr/si?token=094029a3-814c-41d5-8a62-2c3adc647176&cid=1ffe63de-eb53-11e9-b4d2-06948452ae1a';
 		// eslint-disable-next-line no-undef
-		pmcCnx.cmd.push(function () {
+		pmcCnx.cmd.push( function () {
 			// eslint-disable-next-line no-undef
-			pmcCnx({
+			pmcCnx( {
 				playerId,
 				mediaId,
-			}).render(eleId).play();
-		});
+			} )
+				.render( eleId )
+				.play();
+		} );
 	}
 
 	/**
@@ -302,9 +303,8 @@ export default class VideoShowcase {
 	 * If there is something amiss, this is a good place to trouble shoot - it's possible we need to
 	 * getPlaylist() first to retrieve an individual video, then play it, but this was working.
 	 *
-	 * @link https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist
-	 * @param playlistUrl
-	 * @param {string} jwplayerUrl - A Youtube embed URL from returnUrl.
+	 * @see https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist
+	 * @param {string} playlistUrl - YouTube playlist URL.
 	 */
 	playJW( playlistUrl ) {
 		this.playerUI.jwplayerContainer.removeAttribute( 'hidden' );
@@ -325,8 +325,8 @@ export default class VideoShowcase {
 	 *
 	 * Reset player from previous state, update state and player UI, play the video.
 	 *
-	 * @param {event} e
-	 * @param {element} el - Clicked trigger element.
+	 * @param {Event}       e
+	 * @param {HTMLElement} el - Clicked trigger element.
 	 */
 	handleTriggerClick( e, el ) {
 		if ( e ) {
@@ -428,7 +428,7 @@ export default class VideoShowcase {
 	 * Hide both players and either remove JWPlayer or reset the src for the iframe according
 	 * to the previous type of video played.
 	 *
-	 * @TODO: this could check for the current type and only run if the current type is not the
+	 * @todo this could check for the current type and only run if the current type is not the
 	 * same as the past type.
 	 *
 	 * @param {string} pastType - Youtube or JWplayer ID, should be from this.state.videoID, e.g. f1FX5wvC3DA
@@ -447,8 +447,8 @@ export default class VideoShowcase {
 		if ( 'connatix' === pastType ) {
 			const elements =
 				document.getElementsByClassName( 'cnx-main-container' );
-			while (elements.length > 0) {
-				elements[0].parentNode.removeChild( elements[0] );
+			while ( elements.length > 0 ) {
+				elements[ 0 ].parentNode.removeChild( elements[ 0 ] );
 			}
 		}
 	}
@@ -466,7 +466,7 @@ export default class VideoShowcase {
 	 */
 	setActiveTrigger( type, id ) {
 		let trigger = '';
-		if( 'connatix' === type ) {
+		if ( 'connatix' === type ) {
 			trigger = this.el.querySelector(
 				`.related-videos [data-video-media-id="${ id }"]`
 			);

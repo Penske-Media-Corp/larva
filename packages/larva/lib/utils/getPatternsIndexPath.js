@@ -1,3 +1,5 @@
+// We may need to fix this later? See comment below.
+// eslint-disable-next-line no-unused-vars
 const isCoreTheme = require( './isCoreTheme' );
 
 module.exports = function getPatternsIndexPath( config ) {

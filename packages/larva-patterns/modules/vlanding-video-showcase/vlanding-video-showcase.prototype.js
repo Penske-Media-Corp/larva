@@ -64,6 +64,7 @@ vlanding_video_showcase_card.vlanding_video_card_link_showcase_type_data_attr =
 	'youtube';
 vlanding_video_showcase_card.c_span = false;
 
+// eslint-disable-next-line array-callback-return
 demoVideos.map( ( videoId ) => {
 	const newVideo = clonedeep( vlanding_video_showcase_card );
 

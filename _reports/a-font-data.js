@@ -3,9 +3,9 @@
  *
  * For each brand, go to https://<brand>.larva.pmcdev.io/project/__tests__/style-guide/
  * In the console, type:
-let arr = [];
-document.querySelectorAll( 'p[class^=a-font]').forEach( node => arr.push( node.classList[0] ) )
-console.log( arr )
+  let arr = [];
+  document.querySelectorAll( 'p[class^=a-font]').forEach( node => arr.push( node.classList[0] ) )
+  console.log( arr )
  * Copy the object and those are the font names.
  * This could be automated in the future.
  *

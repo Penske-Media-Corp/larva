@@ -1,8 +1,6 @@
 const stylelint = require( 'stylelint' );
-const path = require( 'path' );
 
 const ruleName = 'plugin/css-algorithms';
-const isString = ( s ) => typeof s === 'string';
 const isObject = ( o ) => typeof o === 'object';
 
 const messages = {
@@ -27,10 +25,12 @@ module.exports = {
 			);
 
 			if ( ! validOptions ) {
+				// eslint-disable-next-line no-console
 				console.error( 'Invalid options', validOptions );
 			}
 
-			Object.keys( options ).map( function ( key, index ) {
+			// eslint-disable-next-line array-callback-return
+			Object.keys( options ).map( function ( key ) {
 				const selector = new RegExp( '^.' + key + '.*' );
 				const allowedProperties = options[ key ];
 

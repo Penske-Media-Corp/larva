@@ -5,7 +5,13 @@ const c_icon = clonedeep(
 );
 
 const socialPlatforms = require( '../../utils/getSocialPlatforms' )( [
-	'facebook', 'twitter', 'pinit', 'tumblr', 'reddit', 'linkedin', 'print'
+	'facebook',
+	'twitter',
+	'pinit',
+	'tumblr',
+	'reddit',
+	'linkedin',
+	'print',
 ] );
 
 const social_share_primary = [];

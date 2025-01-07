@@ -7,3 +7,6 @@ jest-setup.js
 
 a-space-children.browser-test.js
 browser-test-setup.js
+
+**/__tests__
+**/__test__

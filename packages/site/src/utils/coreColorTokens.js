@@ -11,7 +11,7 @@
  *
  * @param {Object} tokens The raw.json format of design tokens stored in the `tokens` state
  *
- * @return An object of core color tokens who's keys are only the color name.
+ * @return {Object} An object of core color tokens who's keys are only the color name.
  */
 export const getCoreColorsFromTokens = ( tokens ) => {
 	const colorKeys = Object.keys( tokens ).filter( ( key ) =>
@@ -76,9 +76,9 @@ export const getCoreColorsFromTokens = ( tokens ) => {
  * uses on of the core colors, update the value to the core color.
  *
  * @param {Object} tokensToUpdate The raw.json tokens state object
- * @param {Object} coreColors The core colors tokens state object
+ * @param {Object} coreColors     The core colors tokens state object
  *
- * @return The full tokens object.
+ * @return {Object} The full tokens object.
  */
 export const getUpdatedTokensWithCoreColors = (
 	tokensToUpdate,

@@ -38,6 +38,7 @@ c_dek.c_dek_classes = 'lrv-u-font-size-20 lrv-u-font-style-italic';
 
 o_social_list.o_social_list_classes += ' lrv-u-flex';
 
+// eslint-disable-next-line array-callback-return
 o_social_list.o_social_list_icons.map( ( social_icon ) => {
 	social_icon.c_icon_link_classes +=
 		' lrv-u-border-a-1 lrv-u-color-black lrv-u-border-color-grey';

@@ -5,7 +5,6 @@ import '../vendor/prism';
 
 export default function initLarvaUi() {
 	// This rule is meant for React components.
-	// eslint-disable-next-line @wordpress/no-global-event-listener
 	document.addEventListener( 'DOMContentLoaded', () => {
 		/**
 		 * Initialize local storage toggle button.

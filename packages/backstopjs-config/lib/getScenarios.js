@@ -12,6 +12,7 @@ module.exports = function getScenarios(
 		const selectors =
 			1 === selectorArr.length ? selectorArr[ 0 ] : selectorArr[ i ];
 
+		// eslint-disable-next-line no-console
 		console.log( urlBase + paths[ i ] );
 
 		scenarios.push(

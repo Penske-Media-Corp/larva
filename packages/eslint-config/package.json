@@ -29,6 +29,10 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7",
+    "@wordpress/jest-preset-default": "^11.27.0",
     "prettier": "npm:wp-prettier@^3"
+  },
+  "jest": {
+    "preset": "@wordpress/jest-preset-default"
   }
 }

@@ -7,7 +7,7 @@
  * - remove @desktop-xl CSS utilities to force the desktop breakpoint design
  *
  * Use a counter to ensure this script only runs one time.
- **/
+ */
 
 import removeDesktopXlClasses from '../../utils/removeDesktopXlClasses';
 

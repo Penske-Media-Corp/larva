@@ -13,6 +13,7 @@ c_heading.c_heading_classes =
 
 o_card_list.o_card_list_classes += ' lrv-a-grid a-cols3@tablet';
 
+// eslint-disable-next-line array-callback-return
 o_card_list.o_card_list_items.map( ( o_card ) => {
 	o_card.o_card_classes = 'lrv-u-flex lrv-u-flex-direction-column@tablet';
 

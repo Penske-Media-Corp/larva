@@ -32,7 +32,12 @@ c_tagline.c_tagline_text =
 
 o_social_list.o_social_list_classes += ' lrv-u-flex';
 
-const socialPlatforms = require( '../../utils/getSocialPlatforms' )( [ 'instagram', 'twitter', 'facebook', 'youtube' ] );
+const socialPlatforms = require( '../../utils/getSocialPlatforms' )( [
+	'instagram',
+	'twitter',
+	'facebook',
+	'youtube',
+] );
 const o_social_list_icons = [];
 
 socialPlatforms.forEach( ( { name, label } ) => {

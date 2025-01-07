@@ -11,7 +11,7 @@ const config = getAppConfiguration( 'parser' );
  *                        package README for supported configuration.
  */
 
-function twigToPhpParser( config = {} ) {
+function twigToPhpParser( thisConfig = {} ) {
 	// TODO: We need some kind of wrapper here for config...or better:
 	// move this to pmc-plugins/pmc-larva and scrap this awkward JS
 	// execPhp wrapper situation, and use Larva\Config for this config.
@@ -19,33 +19,36 @@ function twigToPhpParser( config = {} ) {
 	let phpDir = path.join( process.cwd(), '../template-parts/patterns' );
 	let isUsingPlugin = false;
 
-	if ( 'undefined' !== typeof config.twigDir ) {
-		if ( config.twigDir.startsWith( '.' ) ) {
-			twigDir = path.join( process.cwd(), config.twigDir );
+	if ( 'undefined' !== typeof thisConfig.twigDir ) {
+		if ( thisConfig.twigDir.startsWith( '.' ) ) {
+			twigDir = path.join( process.cwd(), thisConfig.twigDir );
 		} else {
-			twigDir = config.twigDir;
+			twigDir = thisConfig.twigDir;
 		}
-	} else if ( 'undefined' !== typeof config.relativeSrcOverride ) {
-		if ( config.relativeSrcOverride.startsWith( '/' ) ) {
-			twigDir = config.relativeSrcOverride;
+	} else if ( 'undefined' !== typeof thisConfig.relativeSrcOverride ) {
+		if ( thisConfig.relativeSrcOverride.startsWith( '/' ) ) {
+			twigDir = thisConfig.relativeSrcOverride;
 		} else {
-			twigDir = path.join( process.cwd(), config.relativeSrcOverride );
+			twigDir = path.join(
+				process.cwd(),
+				thisConfig.relativeSrcOverride
+			);
 		}
 	}
 
-	if ( 'undefined' !== typeof config.isUsingPlugin ) {
-		isUsingPlugin = config.isUsingPlugin;
+	if ( 'undefined' !== typeof thisConfig.isUsingPlugin ) {
+		isUsingPlugin = thisConfig.isUsingPlugin;
 	}
 
-	if ( 'undefined' !== typeof config.phpDir ) {
-		phpDir = config.phpDir;
+	if ( 'undefined' !== typeof thisConfig.phpDir ) {
+		phpDir = thisConfig.phpDir;
 	}
 
 	return new Promise( ( resolve, reject ) => {
 		execPhp(
 			path.resolve( __dirname, './lib/twig-to-php-parser.php' ),
-			config.phpBinaryPath,
-			function ( error, php, output ) {
+			thisConfig.phpBinaryPath,
+			function ( error, php ) {
 				if ( error ) {
 					reject( error );
 				}
@@ -54,9 +57,9 @@ function twigToPhpParser( config = {} ) {
 					twigDir,
 					phpDir,
 					isUsingPlugin,
-					function ( error, result, output, printed ) {
-						if ( error ) {
-							reject( error );
+					function ( thisError, result ) {
+						if ( thisError ) {
+							reject( thisError );
 						}
 
 						resolve( result );
@@ -77,7 +80,7 @@ function parseIncludePath(
 		execPhp(
 			path.resolve( __dirname, './lib/twig-to-php-parser.php' ),
 			config.phpBinaryPath,
-			function ( error, php, output ) {
+			function ( error, php ) {
 				if ( error ) {
 					reject( error );
 				}
@@ -87,9 +90,9 @@ function parseIncludePath(
 					patternName,
 					dataName,
 					isUsingPlugin,
-					function ( error, result, output, printed ) {
-						if ( error ) {
-							reject( error );
+					function ( thisError, result ) {
+						if ( thisError ) {
+							reject( thisError );
 						}
 
 						resolve( result );
@@ -105,7 +108,7 @@ function parseSvgPath( twigSvgIncludeStr, svgName, isUsingPlugin = false ) {
 		execPhp(
 			path.resolve( __dirname, './lib/twig-to-php-parser.php' ),
 			config.phpBinaryPath,
-			function ( error, php, output ) {
+			function ( error, php ) {
 				if ( error ) {
 					reject( error );
 				}
@@ -114,9 +117,9 @@ function parseSvgPath( twigSvgIncludeStr, svgName, isUsingPlugin = false ) {
 					twigSvgIncludeStr,
 					svgName,
 					isUsingPlugin,
-					function ( error, result, output, printed ) {
-						if ( error ) {
-							reject( error );
+					function ( thisError, result ) {
+						if ( thisError ) {
+							reject( thisError );
 						}
 
 						resolve( result );
@@ -132,16 +135,16 @@ function parseWpAction( twigMarkup ) {
 		execPhp(
 			path.resolve( __dirname, './lib/twig-to-php-parser.php' ),
 			config.phpBinaryPath,
-			function ( error, php, output ) {
+			function ( error, php ) {
 				if ( error ) {
 					reject( error );
 				}
 
 				php.parse_wp_action(
 					twigMarkup,
-					function ( error, result, output, printed ) {
-						if ( error ) {
-							reject( error );
+					function ( thisError, result ) {
+						if ( thisError ) {
+							reject( thisError );
 						}
 
 						resolve( result );
@@ -161,12 +164,15 @@ module.exports = {
 	},
 	run: () => {
 		twigToPhpParser( config )
+			// eslint-disable-next-line no-console
 			.catch( ( e ) => console.log( e ) ) // PHP errors
-			.then( ( result ) =>
+			.then( () =>
+				// eslint-disable-next-line no-console
 				console.log(
 					chalk.green( 'Completed parsing Twig templates to PHP.' )
 				)
 			)
+			// eslint-disable-next-line no-console
 			.catch( ( e ) => console.log( e ) );
 	},
 };

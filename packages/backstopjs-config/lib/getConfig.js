@@ -37,6 +37,7 @@ module.exports = function getAppConfiguration( key ) {
 
 		return config;
 	} catch ( error ) {
+		// eslint-disable-next-line no-console
 		console.error(
 			chalk.red(
 				chalk.bold(

@@ -52,17 +52,20 @@ module.exports = function writeJson( patternConfig, fromLarva = false ) {
 					hasChanged = false;
 				}
 			} catch ( error ) {
+				// eslint-disable-next-line no-console
 				console.warn( error );
 			}
 
 			if ( hasChanged ) {
 				writeJsonToFile( jsonDestPath, moduleData );
+				// eslint-disable-next-line no-console
 				console.log(
 					chalk.green.bold(
 						`Wrote JSON for ${ moduleName }.${ variant }`
 					)
 				);
 			} else {
+				// eslint-disable-next-line no-console
 				console.log(
 					chalk.grey( `No updates in ${ moduleName }.${ variant }` )
 				);

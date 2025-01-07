@@ -12,6 +12,7 @@ const regex = new RegExp( '(.[^.]+).(.+).js$' );
 
 module.exports = function getPatternVariants( startPath ) {
 	// Only return Node prototype files that follow pattern name.XX.js
+	// eslint-disable-next-line array-callback-return
 	const files = fs.readdirSync( startPath ).filter( ( file ) => {
 		if ( /.+\..*\.js$/.test( file ) ) {
 			return file;

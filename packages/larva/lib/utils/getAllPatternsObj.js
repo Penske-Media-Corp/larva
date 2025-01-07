@@ -22,6 +22,7 @@ module.exports = function getAllPatternsObj( startPath ) {
 	const obj = {};
 
 	try {
+		// eslint-disable-next-line array-callback-return
 		patternDirs.map( ( patternType ) => {
 			let patterns = [];
 			obj[ patternType ] = {};
@@ -39,6 +40,7 @@ module.exports = function getAllPatternsObj( startPath ) {
 				);
 			}
 
+			// eslint-disable-next-line array-callback-return
 			patterns.map( ( pattern ) => {
 				obj[ patternType ][ pattern ] = getPatternVariants(
 					path.join( startPath, `${ patternType }/${ pattern }` )
@@ -46,6 +48,7 @@ module.exports = function getAllPatternsObj( startPath ) {
 			} );
 		} );
 	} catch ( e ) {
+		// eslint-disable-next-line no-console
 		console.error( e );
 	}
 

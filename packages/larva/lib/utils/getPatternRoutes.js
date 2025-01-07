@@ -48,6 +48,7 @@ module.exports = function getPatternRoutes( patterns ) {
 			} )
 			.flat();
 	} catch ( error ) {
+		// eslint-disable-next-line no-console
 		console.error(
 			chalk.red(
 				'Could not build the pattern routes. Is the pattern object structure correct?'

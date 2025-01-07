@@ -84,6 +84,7 @@ module.exports = ( env, argv ) => {
 	}
 
 	if ( 'production' === argv.mode ) {
+		// eslint-disable-next-line no-console
 		console.log( 'Building Prod JS..' );
 
 		config.module.rules = ( config.module.rules || [] ).concat( [

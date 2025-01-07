@@ -19,7 +19,6 @@ const spritePath = ( () => {
 
 ajaxIconSprite( spritePath );
 
-// eslint-disable-next-line @wordpress/no-global-event-listener
 document.addEventListener( 'DOMContentLoaded', () => {
 	//document has been completely loaded and parsed
 	initCollapsible();

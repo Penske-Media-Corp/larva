@@ -49,6 +49,7 @@ const svgFiles = globby.sync( [ larvaIconsPath, projectIconsPath ], {
 // TODO: unfinished feature
 // let scssIcons = {};
 
+// eslint-disable-next-line no-console
 console.log(
 	`Looking for icon SVGs in ${ path.relative(
 		process.cwd(),
@@ -68,6 +69,7 @@ svgFiles.forEach( ( file ) => {
 	);
 } );
 
+// eslint-disable-next-line no-console
 console.log( 'Building SVG icon sprite...' );
 
 // Write the Sass variables.
@@ -75,7 +77,7 @@ console.log( 'Building SVG icon sprite...' );
 // fs.writeFileSync( path.join( process.cwd(), './build/a-icon-svg.scss' ), getSassVarsString( scssIcons ) );
 
 // Compile the sprite
-spriter.compile( function ( error, result, cssData ) {
+spriter.compile( function ( error, result ) {
 	// Run through all configured output modes
 	for ( const mode in result ) {
 		// Run through all created resources and write them to disk
@@ -88,5 +90,6 @@ spriter.compile( function ( error, result, cssData ) {
 		}
 	}
 
+	// eslint-disable-next-line no-console
 	console.log( 'Completed building SVG icon sprite.' );
 } );

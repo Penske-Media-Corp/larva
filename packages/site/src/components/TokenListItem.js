@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const TokenListItem = ( {
 	tokenName,
@@ -73,10 +73,10 @@ export const TokenListItem = ( {
 					<div className="ui card lrv-u-width-300">
 						<div className="lrv-u-padding-a-1">
 							<p className="lrv-u-margin-t-050">
-								Changing this token will "unlink"{ ' ' }
+								Changing this token will &quot;unlink&quot;{ ' ' }
 								<code>{ coreColorKey }</code>, so it can no
-								longer be centrally managed from "Core Colors".
-								Please confirm this change.
+								longer be centrally managed from &quot;Core
+								Colors&quot;. Please confirm this change.
 							</p>
 							<div className="ui two buttons">
 								<button

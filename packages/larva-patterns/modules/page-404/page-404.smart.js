@@ -24,11 +24,13 @@ c_svg.c_svg_name = 'logo-404';
 c_svg.c_svg_classes = 'lrv-u-max-width-100p';
 
 c_title.c_title_text = 'OOPS! Something went wrong here!';
-c_title.c_title_classes = 'lrv-a-font-secondary-l lrv-u-text-transform-uppercase lrv-u-margin-b-125';
+c_title.c_title_classes =
+	'lrv-a-font-secondary-l lrv-u-text-transform-uppercase lrv-u-margin-b-125';
 c_title.c_title_url = false;
 
 c_suggestion_title.c_title_classes = 'lrv-u-text-align-left lrv-u-margin-b-075';
-c_suggestion_title.c_title_text = 'Here are some suggestions that might be the page you were looking for:';
+c_suggestion_title.c_title_text =
+	'Here are some suggestions that might be the page you were looking for:';
 c_suggestion_title.c_title_url = false;
 
 suggested_link_items.list_classes = 'lrv-u-text-align-left lrv-u-padding-b-1';
@@ -41,7 +43,8 @@ c_search_title.c_title_classes = 'lrv-u-text-align-left';
 c_search_title.c_title_text = 'Or try searching for it here...';
 c_search_title.c_title_url = false;
 
-search_form.search_form_classes = 'lrv-u-text-align-left lrv-u-margin-t-1 lrv-u-display-inline-flex lrv-u-width-100p search-form-404';
+search_form.search_form_classes =
+	'lrv-u-text-align-left lrv-u-margin-t-1 lrv-u-display-inline-flex lrv-u-width-100p search-form-404';
 search_form.search_form_input_classes = 'lrv-u-border-a-1 lrv-u-width-100p';
 search_form.search_form_action_url = '/?s=';
 

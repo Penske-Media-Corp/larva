@@ -45,7 +45,8 @@ o_email_capture_form.c_button.c_button_text = 'Sign Up';
 const c_tagline_prototype = require( '../../components/c-tagline/c-tagline.prototype' );
 const c_tagline_terms = clonedeep( c_tagline_prototype );
 
-c_tagline_terms.c_tagline_classes = 'lrv-a-font-basic-xxs lrv-u-margin-t-050 lrv-a-children-link-decoration-underline';
+c_tagline_terms.c_tagline_classes =
+	'lrv-a-font-basic-xxs lrv-u-margin-t-050 lrv-a-children-link-decoration-underline';
 c_tagline_terms.c_tagline_text = false;
 
 module.exports = {

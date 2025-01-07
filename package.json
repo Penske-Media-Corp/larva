@@ -98,6 +98,7 @@
     "webpack-cli": "^5"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.24.7",
     "backstopjs": "^6",
     "eslint-config-prettier": "^9"
   }

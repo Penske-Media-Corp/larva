@@ -6,6 +6,8 @@ module.exports = function ( results ) {
 	const styleLintPath = path.resolve(
 		`${ process.cwd() }/pmc.stylelintrc.json`
 	);
+
+	// eslint-disable-next-line no-unused-vars, @wordpress/no-unused-vars-before-return
 	const additionalStyleLint = fs.existsSync( styleLintPath );
 
 	const propertiesForCustomMessage = JSON.parse(

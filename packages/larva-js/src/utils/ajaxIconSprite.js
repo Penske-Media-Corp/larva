@@ -2,10 +2,10 @@
  * Ajax the SVG sprite and append a DOM hidden element
  * containing the responseText.
  *
- * @param {string} buildPath
- * @param iconPath
+ * @param {string} iconPath
  */
 export default function ( iconPath ) {
+	// eslint-disable-next-line no-undef
 	const ajax = new XMLHttpRequest();
 	const div = document.createElement( 'div' );
 

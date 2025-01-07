@@ -1,6 +1,8 @@
 const clonedeep = require( 'lodash.clonedeep' );
 
-const c_title = clonedeep( require( '@penskemediacorp/larva-patterns/components/c-title/c-title.prototype.js' ) );
+const c_title = clonedeep(
+	require( '@penskemediacorp/larva-patterns/components/c-title/c-title.prototype.js' )
+);
 const c_button_prototype = require( '@penskemediacorp/larva-patterns/components/c-button/c-button.brand-basic.js' );
 const c_tagline_prototype = require( '@penskemediacorp/larva-patterns/components/c-tagline/c-tagline.prototype.js' );
 const c_lazy_image_prototype = require( '@penskemediacorp/larva-patterns/components/c-lazy-image/c-lazy-image.prototype.js' );
@@ -17,13 +19,15 @@ const c_lazy_image = clonedeep( c_lazy_image_prototype );
 const c_tagline_product = clonedeep( c_tagline_prototype );
 const c_button_buy = clonedeep( c_button_prototype );
 
-c_dek.c_dek_classes = 'lrv-u-padding-a-075 lrv-u-margin-tb-00 lrv-a-font-secondary-s';
+c_dek.c_dek_classes =
+	'lrv-u-padding-a-075 lrv-u-margin-tb-00 lrv-a-font-secondary-s';
 
 const c_dek_verdict = clonedeep( c_dek );
 const c_dek_pros = clonedeep( c_dek );
 const c_dek_cons = clonedeep( c_dek );
 
-c_title_award.c_title_classes = 'lrv-u-color-white lrv-a-font-secondary-m lrv-u-border-a-2 lrv-u-padding-tb-050';
+c_title_award.c_title_classes =
+	'lrv-u-color-white lrv-a-font-secondary-m lrv-u-border-a-2 lrv-u-padding-tb-050';
 
 c_lazy_image.c_lazy_image_crop_class = 'lrv-a-crop-1x1';
 
@@ -31,7 +35,8 @@ c_title_brand.c_title_text = 'Google';
 c_title_brand.c_title_classes = 'lrv-u-padding-t-1 lrv-a-font-primary-m';
 c_title_brand.c_title_link_classes = 'lrv-a-unstyle-link';
 
-c_tagline_product.c_tagline_classes = 'lrv-u-margin-tb-050 lrv-a-font-secondary-s';
+c_tagline_product.c_tagline_classes =
+	'lrv-u-margin-tb-050 lrv-a-font-secondary-s';
 c_tagline_product.c_tagline_text = 'Smart Thermostat For Home';
 
 c_button_buy.c_button_text = 'Buy Now';

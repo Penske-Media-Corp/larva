@@ -27,7 +27,7 @@ export default function removeDesktopXlClasses() {
 
 		el.className = '';
 
-		classes.map( ( c ) => {
+		classes.forEach( ( c ) => {
 			if ( ! c.includes( '@desktop-xl' ) ) {
 				el.className += ` ${ c }`;
 			}

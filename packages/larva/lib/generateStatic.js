@@ -18,14 +18,12 @@ const themeAssetsConfig = getAppConfiguration( 'themeAssets' );
  * of each route, and write the content to directory structure that
  * mirrors the pattern routes.
  *
- * @param {Array} routesArr  An array of routes in a pattern server, excluding the pattern source (i.e. larva or project).
- *                           This is the result of getPatternRoutes.
- * @param {string} buildPath A directory where the HTML files should be written.
- * @param {Function} done    A callback function to run when the site generation completes.
- * @param {string} urlBase   The base URL for the pattern library e.g. 'http://localhost:3001/larva'.
- *                           Pattern routes will be appended to this. Should not end in slash.
- *
- * @see {@link getPatternRoutes}.
+ * @param {Array}    routesArr An array of routes in a pattern server, excluding the pattern source (i.e. larva or project).
+ *                             This is the result of getPatternRoutes.
+ * @param {string}   buildPath A directory where the HTML files should be written.
+ * @param {Function} done      A callback function to run when the site generation completes.
+ * @param {string}   urlBase   The base URL for the pattern library e.g. 'http://localhost:3001/larva'.
+ *                             Pattern routes will be appended to this. Should not end in slash.
  */
 
 module.exports = function generateStatic(
@@ -40,6 +38,7 @@ module.exports = function generateStatic(
 
 	// Copy assets from assets/build and assets/public
 	// to the static site build directory.
+	// eslint-disable-next-line no-console
 	console.log( '\nCopying assets...\n' );
 
 	// assets/public dir contains fonts and non-built things.
@@ -78,6 +77,7 @@ module.exports = function generateStatic(
 	// Build the site.
 	// Cycle through the list of routes and write the response
 	// to files.
+	// eslint-disable-next-line no-console
 	console.log( '\nBuilding site...\n' );
 
 	try {
@@ -94,6 +94,7 @@ module.exports = function generateStatic(
 							`${ dir }/index.html`,
 							response.data
 						);
+						// eslint-disable-next-line no-console
 						console.log( `Built ${ route }.` );
 					}
 				} )
@@ -104,6 +105,7 @@ module.exports = function generateStatic(
 						mkdirp.sync( dir );
 						fs.writeFileSync( `${ dir }/index.html`, e.message );
 
+						// eslint-disable-next-line no-console
 						console.log(
 							chalk.yellow(
 								`Error writing ${ route }: ${ e.message }.`
@@ -117,6 +119,7 @@ module.exports = function generateStatic(
 			.all( promises )
 			.then( () => {
 				if ( errors.length > 0 ) {
+					// eslint-disable-next-line no-console
 					console.log( errors );
 				}
 
@@ -132,6 +135,7 @@ module.exports = function generateStatic(
 				done( chalk.bold.red( e ) );
 			} );
 	} catch ( e ) {
+		// eslint-disable-next-line no-console
 		console.error( e );
 	}
 };

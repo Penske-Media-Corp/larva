@@ -1,11 +1,11 @@
 /**
  * Helper function to get larva-patterns/_data array by property
  *
- * @param {String} filename    JSON filenames in ../_data.
- * @param {String} orderKey    Object property name to sort/order by.
+ * @param {string} filename    JSON filenames in ../_data.
+ * @param {string} orderKey    Object property name to sort/order by.
  * @param {Array}  orderValues Desired items from data file(s) (by orderKey property).
  */
-module.exports = function( filename, orderKey, orderValues ) {
+module.exports = function ( filename, orderKey, orderValues ) {
 	const data = require( `../_data/${ filename }.json` );
 
 	if ( orderKey && orderValues ) {
@@ -18,7 +18,6 @@ module.exports = function( filename, orderKey, orderValues ) {
 		} );
 
 		return sortedData;
-	} else {
-		return data;
 	}
+	return data;
 };

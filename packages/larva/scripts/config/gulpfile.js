@@ -124,7 +124,7 @@ const composeTask = ( done, generateImportantVariants = false ) => {
  *
  * @param {Object} style  PostCSS Root object for current CSS.
  * @param {Object} result PostCSS Result object containing transformed CSS.
- * @return {Result} PostCSS Result object.
+ * @return {Object} PostCSS Result object.
  */
 const declareImportanceForAll = ( style, result ) => {
 	const root = postCss.parse( style );

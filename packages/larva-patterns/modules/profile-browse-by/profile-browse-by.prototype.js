@@ -17,6 +17,7 @@ o_card_list.o_card_list_classes +=
 o_card_list.o_card_list_item_classes +=
 	' lrv-u-text-align-center lrv-u-margin-b-1';
 
+// eslint-disable-next-line array-callback-return
 o_card_list.o_card_list_items.map( ( o_card ) => {
 	o_card.c_lazy_image.c_lazy_image_img_classes += ' lrv-u-border-radius-50p';
 	o_card.c_lazy_image.c_lazy_image_crop_class = 'lrv-a-crop-1x1';

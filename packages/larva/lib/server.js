@@ -231,6 +231,7 @@ app.get( '/:source/:type/:name/:variant?', function ( req, res ) {
 		.catch( ( e ) => {
 			const errorMessage = `Cannot render template! \n\n${ e }`;
 
+			// eslint-disable-next-line no-console
 			console.log( e );
 
 			res.end( errorMessage );
@@ -287,6 +288,7 @@ app.get( '/:source?/style-guide', function ( req, res ) {
 		.catch( ( e ) => {
 			const errorMessage = `Cannot render template! \n\n${ e }`;
 
+			// eslint-disable-next-line no-console
 			console.log( e );
 
 			res.end( errorMessage );

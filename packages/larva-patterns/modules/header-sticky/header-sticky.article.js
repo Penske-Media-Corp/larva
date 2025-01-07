@@ -16,7 +16,11 @@ read_next.c_title.c_title_link_classes =
 
 const o_social_list = clonedeep( o_social_list_prototype );
 
-const socialPlatforms = require( '../../utils/getSocialPlatforms' )( [ 'facebook', 'twitter', 'email' ] );
+const socialPlatforms = require( '../../utils/getSocialPlatforms' )( [
+	'facebook',
+	'twitter',
+	'email',
+] );
 
 const social_list_icons = [];
 o_social_list.o_social_list_icons = [];

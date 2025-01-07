@@ -18,7 +18,7 @@ export const InitialForm = ( {
 
 			<form className="lrv-a-grid lrv-a-cols2">
 				<div className="lrv-a-space-children-vertical lrv-a-space-children--1">
-					<h2>Update a Brand's Tokens</h2>
+					<h2>Update a Brand&apos;s Tokens</h2>
 					<p className="lrv-u-font-size-18">
 						Select the brand you would like to update:
 					</p>

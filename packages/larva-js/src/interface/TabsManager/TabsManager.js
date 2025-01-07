@@ -3,7 +3,6 @@
  *
  * @todo Add hover support
  * @see https://bitbucket.org/penskemediacorp/pmc-indiewire-2016/src/master/assets/src/js/modules/TabsManager/TabsManager.js
- *
  */
 
 export default class TabsManager {
